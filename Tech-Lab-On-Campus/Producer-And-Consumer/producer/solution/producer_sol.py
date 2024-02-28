@@ -6,6 +6,9 @@ class mqProducer(mqProducerInterface):
     def __init__(self, routing_key: str, exchange_name:str) -> None:
         self.key = routing_key
         self.name = exchange_name
+        self.connection = None
+        self.channel = None
+        self.exchange = None
         self.setupRMQConnection()
     
     def setupRMQConnection(self) -> None:
